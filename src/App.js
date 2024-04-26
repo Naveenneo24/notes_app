@@ -1,25 +1,25 @@
-import logo from './logo.svg';
+import { useEffect} from "react";
 import './App.css';
+import UseContext from "./useContext";
+import Mainpage from "./Components/MainPage/mainpage";
 
 function App() {
+  const { selected, setSelected } = UseContext();
+
+  useEffect(() => {
+    setSelected(localStorage.getItem("selected") || "");
+    // eslint-disable-next-line
+  }, [selected]);
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    
+    <div>
+      <Mainpage/>
     </div>
-  );
+    
+  )
 }
 
 export default App;
